@@ -3,15 +3,11 @@ const Productmodel = require('./../Model/product');
 
 
 module.exports = {
-    addproduct: function(req, res) {
+    addproduct: async function(req, res) {
         const product = req.body;
-        Productmodel.create(product, function(err, data){
-            if(err){
-                return res.send(err);
-            } else {
-                return res.send(data);
-            }
-        });
+        const data = await Productmodel.create(product);
+        return res.json(data);
+    
     },
      deleteproduct: function(req, res) {
          const id = req.body.id;
@@ -19,7 +15,7 @@ module.exports = {
              if(err){
                  return res.send(err);
              } else {
-                 return res.send(data);
+                 return res.send(JSON.stringify(data));
              }
          })
      },

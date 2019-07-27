@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { MONGO_URI } = require('./../constant')
+const MONGO_URI = 'mongodb://localhost:27017/jay'
 
 
 mongoose.connect(process.env.MONGO_URI || MONGO_URI,  { useNewUrlParser: true });

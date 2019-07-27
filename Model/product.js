@@ -9,8 +9,7 @@ var ProductSchema = new Schema({
     auto: true
   },
     title:{
-        type: String,
-        required: true
+        type: String
     },
     desc:{
         type:String,
@@ -28,11 +27,13 @@ var ProductSchema = new Schema({
         type:String,
         default: false
     },
-    activ:{
+    
+    active:{
         type:String,
         default: false
     },
-    caregory: {
+    
+    category: {
         type: String
     },
     cartQty:{
