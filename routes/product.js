@@ -8,7 +8,7 @@ var upload = require('./../Config/multer');
 router.post('/addproduct', upload.any(), async function(req, res, next) {
   req.body.img = 'public/images/uploads/' + req.files[0].filename;
   req.body.thumbnail = 'public/images/uploads/' + req.files[1].filename;
-  req.body.brandimg = 'public/images/uploads/' + req.files[3].filename;
+  req.body.brandimg = 'public/images/uploads/' + req.files[2].filename;
   const data = await product.addproduct(req, res);
   res.send(data);
 });

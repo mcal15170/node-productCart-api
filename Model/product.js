@@ -39,6 +39,14 @@ var ProductSchema = new Schema({
     cartQty:{
         type: String
     },
+    thumbnail:{
+        type:String,
+        default: false
+    },
+    brandimg:{
+        type:String,
+        default: false
+    },
    
 
 })
