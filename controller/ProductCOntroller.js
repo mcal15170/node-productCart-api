@@ -1,12 +1,18 @@
 `use strict`
 const Productmodel = require('./../Model/product');
+const responce = require('./../Config/responceservice');
+
 
 
 module.exports = {
     addproduct: async function(req, res) {
         const product = req.body;
         const data = await Productmodel.create(product);
-        return res.json(data);
+        if(data){
+            return res.json(responce.sucess(data));
+        } else {
+            return res.json(responce.error('data not inserted'));
+        }
     
     },
      deleteproduct: function(req, res) {
