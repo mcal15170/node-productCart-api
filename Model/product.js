@@ -47,7 +47,7 @@ var ProductSchema = new Schema({
         type:String,
         default: false
     },
-   
+
 
 })
 
