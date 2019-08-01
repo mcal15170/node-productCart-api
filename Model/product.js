@@ -16,8 +16,9 @@ var ProductSchema = new Schema({
         default: false
     },
     price:{
-        type:Number,
-        default: false
+        currency: { type: String, default: 'Rs'},
+        orignal: {type: Number},
+        discount: {type: Number},
     },
     qty:{
         type:Number,
@@ -27,7 +28,20 @@ var ProductSchema = new Schema({
         type:String,
         default: false
     },
-    
+    images: {
+        img: {
+            type:String,
+            default: false
+        },
+        thumbnail: {
+            type:String,
+            default: false
+        },
+        brandimg: {
+            type:String,
+            default: false
+        },
+    },
     active:{
         type:String,
         default: false
@@ -39,14 +53,10 @@ var ProductSchema = new Schema({
     cartQty:{
         type: String
     },
-    thumbnail:{
-        type:String,
-        default: false
-    },
-    brandimg:{
-        type:String,
-        default: false
-    },
+   shippingcharge: {
+       type: Boolean
+   }
+ 
 
 
 })

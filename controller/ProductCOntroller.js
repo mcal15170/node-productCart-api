@@ -6,10 +6,15 @@ const responce = require('./../Config/responceservice');
 
 module.exports = {
     addproduct: async function(req, res) {
-        const product = req.body;
-        const data = await Productmodel.create(product);
-        if(data){
-            return res.json(responce.sucess(data));
+        const data = req.body;
+        data.images = {};
+        data.price = {};
+        data.images.img = 'public/images/uploads/' + req.files[0].filename;
+        data.images.thumbnail = 'public/images/uploads/' + req.files[1].filename;
+        data.images.brandimg = 'public/images/uploads/' + req.files[2].filename;
+        const savedata = await Productmodel.create(data);
+        if(savedata){
+            return res.json(responce.sucess(savedata));
         } else {
             return res.json(responce.error('data not inserted'));
         }
